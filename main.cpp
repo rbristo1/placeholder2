@@ -105,14 +105,14 @@ int main() {
         else if (input == '\n') {
             if (lastInput == 's') {
                 stop = true;
-                music.join();
+                music2.join();
                 //usleep(0.03125 * microsecond);
                 break;
             }
             else {
                 stop = true;
                 mm.gameStart(&screen);
-                music.join();
+                music2.join();
                 stop = false;
                 loop = 0;
                 //thread music2(&mini::playMenuTheme, &sounds, &stop, test.data());
