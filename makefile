@@ -1,7 +1,10 @@
 all:	main
 
 main: main.o implementation/enemies.o implementation/screenManip.o implementation/battle.o implementation/mapMovements.o miniAudioSounds.o Character.o Enemy.o Player.o Game.o Action.o Weapon.o Item.o
+	mv miniaudio.h miniaudio
 	g++ -msse2 -mavx2 -lm -ldl -w -lpthread -lncurses -lmenu main.o implementation/enemies.o implementation/screenManip.o implementation/battle.o implementation/mapMovements.o miniAudioSounds.o Character.o Enemy.o Player.o Game.o Action.o Weapon.o Item.o -o main
+
+
 main.o: main.cpp
 	g++ -c main.cpp
 enemies.o:  implementation/enemies.cpp implementation/enemies.h
