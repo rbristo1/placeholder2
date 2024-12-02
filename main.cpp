@@ -77,13 +77,14 @@ int main() {
     in the non-canonical mode*/
     char lastInput = 'w';
     //thread music(&mini::playMenuTheme, &sounds, &stop, test.data());
-    thread music;
     int loop = 0;
+    //thread music(&mini::playMenuTheme, &sounds, &stop, test.data());
+    thread music2;
     do{
         if (loop == 0) {
-            music(&mini::playMenuTheme, &sounds, &stop, test.data());
+            thread music(&mini::playMenuTheme, &sounds, &stop, test.data());
+            swap(music, music2);
         }
-        
         sm.printScreen(&screen);
         double microsecond = 1000000;
         usleep(0.03125 * microsecond);//sleeps for 3 second
